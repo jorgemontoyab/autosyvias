@@ -1,4 +1,49 @@
+<?php
+/* Asignación de las variables para extraer los datos */
 
+$apellido = $_POST['apellido'];
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+$human = intval($_POST['human']);
+
+/* Declaración de variables adicionales */
+
+$de = 'Formulario de contacto Autos y Vías';
+$para = 'autosyvias@hotmail.com';
+$asunto = 'Mensaje desde la página web';
+
+$mensaje = "De: $nombre $apellido\n Correo electrónico: $email\n Mensaje:\n $message";
+
+/* Validación de formulario en el caso de nombre y apellido */
+
+if (!$_POST['apellido']) {
+	$errApellido = 'Por favor ingrese su apellido';
+}
+
+if (!$_POST['nombre']) {
+	$errNombre = 'Por favor ingrese su nombre';
+}
+
+if (!$_POST['nombre'] && !$_POST['apellido']) {
+	$errNombreApellido = 'Por favor ingrese su nombre y apellido'
+}
+
+/* Validación del correo electrónico */
+
+if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $errEmail = 'Por favor ingrese una dirección de correo electrónico válida';
+}
+
+if (!$_POST['message']) {
+	$errMessage = 'Por favor, introduzca su mensaje';
+}
+
+/* Validación del anti spam */
+
+if ($human !== 8) {
+	$errHuman = 'La respuesta es incorrecta';
+}
 
 <html>
 	<head>
@@ -88,30 +133,36 @@
 								<label for="apellido" class="col-sm-2 control-label">Apellido(s)</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido(s)" value="">
+									<?php echo "<p class='text-danger'>$errApellido</p>";?>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="nombre" class="col-sm-2 control-label">Nombre(s)</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" value="">
+									<?php echo "<p class='text-danger'>$errNombre</p>";?>
+									<?php echo "<p class='text-danger'>$errNombreApellido</p>";?>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="email" class="col-sm-2 control-label">E-mail</label>
 								<div class="col-sm-10">
-									<input type="email" class="form-control" id="email" name="email" placeholder="nombre@dominio.com" value="">
+									<input type="email" class="form-control" id="email" name="email" placeholder="nombre@dominio.com" value="">	
+									<?php echo "<p class='text-danger'>$errEmail</p>";?>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="message" class="col-sm-2 control-label">Mensaje</label>
 								<div class="col-sm-10">
 									<textarea name="message" id="message" cols="30" rows="10" class="form-control" rows="4" name="message"></textarea>
+									<?php echo "<p class='text-danger'>$errMessage</p>";?>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="human" class="col-sm-2 control-label">5+3</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="human" name="human" placeholder="Su respuesta">
+									<?php echo "<p class='text-danger'>$errHuman</p>";?>
 								</div>
 							</div>
 							<div class="form-group">
@@ -121,7 +172,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-10 col-sm-offset-2">
-									<!-- Will be used to dsiplay an alert to the user -->
+									<!-- Will be used to display an alert to the user -->
 								</div>
 							</div>
 						</form>
@@ -213,25 +264,21 @@
 			<div id="contacto">
 				<div class="container">
 					<div id="direccion" class="row"><!-- Dirección y teléfono -->
-						<div class="col-xs-6">
-							<div class="vcard">
+						<div class="col-xs-12">
+							<div class="vcard text-center">
 								<p class="fn"><a class="url" href="#">AUTOS Y VIAS</a></p>
 								<p class="adr">
-								<span class="street-address">Cra. 81 # 32 EE-13</span><br>
-								<span class="region">Medellín</span><br>
-								<span class="postal-code">050030</span><br>
-								<span class="country-name">Colombia</span>
+								<span class="street-address">Cra. 81 # 32 EE-13, Santa Gema, Medellín</span><br>
+								<span class="postal-code">Código postal: 050030 - Colombia</span><br>
 								</p>
-								<p class="tel">+57 (4) 444 73 59</p>
-	                            <p class="tel">+57 (4) 411 28 95</p>
-	                            <p class="tel">+57 316 482 69 95</p>
-	                            <p>email <a href="mailto:autosyvias@hotmail.com">autosyvias@hotmail.com</a></p>
-	                            <blockquote>"HACEMOS LAS COSAS BIEN PORQUE CREEMOS EN LO QUE HACEMOS"</blockquote>
+								<p class="tel">PBX: +57 (4) 444 73 59 / +57 (4) 411 28 95 / +57 316 482 69 95</p>
+								<p>email: <a href="mailto:autosyvias@hotmail.com">autosyvias@hotmail.com</a></p>
+	                            <p class="hacemos">"HACEMOS LAS COSAS BIEN PORQUE CREEMOS EN LO QUE HACEMOS"</p>
 							</div>	
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>	
 			<div id="autor" class="row">
 				<div class="container">
 					<div class="col-xs-12">
