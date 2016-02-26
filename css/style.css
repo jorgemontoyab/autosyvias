@@ -274,8 +274,12 @@
 	}
 
 	/*  Blockquote */
-	#hacemos {
+	.hacemos {
 		font-family: 'Courgette', cursive;
 		color: #E02527;
+	}
+
+	#direccion {
+		font-size: 1.3em;
 	}
 	
