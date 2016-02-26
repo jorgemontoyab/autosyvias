@@ -11,12 +11,14 @@
 
 	h1,
 	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+	h3 {
 		font-family: 'Abril Fatface', cursive !important;
 		font-size: 1.6em !important;
+	}
+
+	h4 {
+		font-family: 'Abril Fatface', cursive !important;
+		font-size: 1.4em !important;
 	}
 
 /* HEADER */
