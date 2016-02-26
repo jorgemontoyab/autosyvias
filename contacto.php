@@ -52,6 +52,7 @@ if ($human !== 8) {
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	    <title>Contacto - Autos y Vías</title>
+	    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
