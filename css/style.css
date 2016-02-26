@@ -170,7 +170,7 @@
 
 	/* Botón conoce más */
 
-	button {
+	#boton-conoce {
 		background-color: #e6e344;
 		color: #1172ae !important;
 	}
@@ -271,5 +271,11 @@
 
 	#autor .url {
 		float: right;
+	}
+
+	/*  Blockquote */
+	#hacemos {
+		font-family: 'Courgette', cursive;
+		color: #E02527;
 	}
 	
